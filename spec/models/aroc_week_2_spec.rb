@@ -88,16 +88,16 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it "13. groups an order's items by name" do
-    skip
     expected_result = [@item_4, @item_2, @item_5, @item_3]
 
     # ----------------------- Using Ruby -------------------------
     order = Order.find(@order_3.id)
-    grouped_items = order.items.sort_by { |item| item.name }
+    # grouped_items = order.items.sort_by { |item| item.name }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    grouped_items = Item.joins(:orders).where("order_items.order_id = #{order.id}").order(:name)
     # ------------------------------------------------------------
 
     # Expectation
