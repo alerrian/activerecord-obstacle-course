@@ -9,8 +9,6 @@ describe 'ActiveRecord Obstacle Course, Week 3' do
 # Here are the docs associated with ActiveRecord queries: http://guides.rubyonrails.org/active_record_querying.html
 
 # ----------------------
-
-
   it '16. returns the names of users who ordered one specific item' do
     expected_result = [@user_2.name, @user_3.name, @user_1.name]
 
@@ -28,6 +26,9 @@ describe 'ActiveRecord Obstacle Course, Week 3' do
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    users = User.select(:name).joins(:items).order(:name).distinct.map do |user|
+      user.name
+    end
     # ------------------------------------------------------------
 
     # Expectation
