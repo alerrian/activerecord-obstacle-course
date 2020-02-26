@@ -15,11 +15,12 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
     expected_result = [@order_3, @order_15, @order_9, @order_12]
 
     # ----------------------- Using Ruby -------------------------
-    orders_of_user_3 = Order.all.select { |order| order.user_id == @user_3.id }
+    # orders_of_user_3 = Order.all.select { |order| order.user_id == @user_3.id }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    orders_of_user_3 = Order.where(user_id: @user_3.id)
     # ------------------------------------------------------------
 
     # Expectation
@@ -27,6 +28,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it '10. sorts the orders from most expensive to least expensive' do
+    skip
     expected_result = [
       @order_15, @order_14, @order_13, @order_12, @order_11,
       @order_10, @order_8, @order_9, @order_7, @order_6,
@@ -46,6 +48,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it '11. sorts the orders from least expensive to most expensive' do
+    skip
     expected_result = [
       @order_1, @order_2, @order_3, @order_4, @order_5,
       @order_6, @order_7, @order_9, @order_8, @order_10,
@@ -65,6 +68,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it '12. should return all items except items 2, 5 and 6' do
+    skip
     items_not_included = [@item_2, @item_5, @item_6]
     expected_result = [
       @item_1, @item_4, @item_9, @item_10,
@@ -84,6 +88,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it "13. groups an order's items by name" do
+    skip
     expected_result = [@item_4, @item_2, @item_5, @item_3]
 
     # ----------------------- Using Ruby -------------------------
@@ -100,6 +105,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it '14. plucks all values from one column' do
+    skip
     expected_result = ['Abercrombie', 'Banana Republic', 'Calvin Klein', 'Dickies', 'Eddie Bauer', 'Fox', 'Giorgio Armani', 'Hurley', 'Izod', 'J.crew']
 
     # ----------------------- Using Ruby -------------------------
@@ -115,6 +121,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it '15. gets all item names associated with all orders' do
+    skip
     expected_result = [
       'Dickies', 'Giorgio Armani', 'Banana Republic', 'Eddie Bauer',
       'Eddie Bauer', 'Banana Republic', 'J.crew', 'Calvin Klein',
