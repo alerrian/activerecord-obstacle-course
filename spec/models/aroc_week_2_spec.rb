@@ -40,7 +40,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
-    Order.order(amount: :desc)
+    orders = Order.order(amount: :desc)
     # ------------------------------------------------------------
 
     # Expectation
