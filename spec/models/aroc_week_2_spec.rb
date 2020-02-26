@@ -68,7 +68,6 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
   end
 
   it '12. should return all items except items 2, 5 and 6' do
-    skip
     items_not_included = [@item_2, @item_5, @item_6]
     expected_result = [
       @item_1, @item_4, @item_9, @item_10,
@@ -76,11 +75,12 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
     ]
 
     # ----------------------- Using Ruby -------------------------
-    items = Item.all.map { |item| item unless items_not_included.include?(item) }.compact
+    # items = Item.all.map { |item| item unless items_not_included.include?(item) }.compact
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
     # Solution goes here
+    items = Item.where.not(id: items_not_included).order(id: :asc)
     # ------------------------------------------------------------
 
     # Expectation
